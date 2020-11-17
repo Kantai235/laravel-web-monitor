@@ -19,6 +19,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\WebMonitor\IpAddressPing::class,
         \App\Console\Commands\WebMonitor\IpAddressScan::class,
+        // \App\Console\Commands\WebMonitor\IpAddressPingJob::class,
+        // \App\Console\Commands\WebMonitor\IpAddressScanJob::class,
     ];
 
     /**
@@ -29,12 +31,25 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        /**
+         * 掛載排程 `worker` 去執行
+         */
         $schedule->command('web-monitor:ip-address-scan')->everyMinute()->when(function () {
             return Crons::everySomeMinutes('web-monitor:ip-address-scan', 10);
         });
         $schedule->command('web-monitor:ip-address-ping')->everyMinute()->when(function () {
             return Crons::everySomeMinutes('web-monitor:ip-address-ping', 1);
         });
+
+        /**
+         * 掛載 `worker` 並以任務(Job)的形式去執行
+         */
+        // $schedule->command('web-monitor:ip-address-scan-job')->everyMinute()->when(function () {
+        //     return Crons::everySomeMinutes('web-monitor:ip-address-scan-job', 10);
+        // });
+        // $schedule->command('web-monitor:ip-address-ping-job')->everyMinute()->when(function () {
+        //     return Crons::everySomeMinutes('web-monitor:ip-address-ping-job', 1);
+        // });
 
         /**
          * Crons Example:

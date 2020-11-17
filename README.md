@@ -27,3 +27,27 @@
 7. 執行 `npm install`。
 8. 執行 `npm run production`。
 9. 透過 `apache` 或 `nginx` 來部署你的專案。
+
+如果要快速使用的話，需要再運行 `Command` 來自動抓取 IP Address 以及 Ping 值，因此需要執行以下指令：
+
+```sh
+php artisan web-monitor:ip-address-scan
+php artisan web-monitor:ip-address-ping
+```
+
+【微推薦】如果要長期使用的話，請掛載排程 `worker` 去執行以下指令：
+
+```sh
+php artisan schedule:run
+# 排程請參閱 https://laravel.com/docs/8.x/scheduling
+```
+
+【最推薦】如果要長期且穩定使用的話，需要先打開 `app/Console/Kernel.php` 將 `IpAddressPing` 與 `IpAddressScan` 相關項目註解掉，並且啟用 `IpAddressPingJob`、`IpAddressScanJob` 相關項目，最後請掛載 `worker` 並以任務(Job)的形式去執行：
+
+```sh
+php artisan schedule:run
+# 排程請參閱 https://laravel.com/docs/8.x/scheduling
+
+php artisan queue:work
+# Queues 請參閱 https://laravel.com/docs/8.x/queues
+```
