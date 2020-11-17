@@ -100,6 +100,10 @@
                 <div class="links">
                     <a href="https://github.com/Kantai235/laravel-web-monitor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div><!--links-->
+
+                <div class="links my-5">
+                    <a href="{{ route('frontend.monitor.index') }}" style="font-size: 2rem;"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Web Monitor Dashboard <i class="fa fa-hand-o-left" aria-hidden="true"></i></a>
+                </div><!--title-->
             </div><!--content-->
         </div><!--app-->
 
