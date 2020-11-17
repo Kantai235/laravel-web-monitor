@@ -9,7 +9,7 @@ use Tabuna\Breadcrumbs\Trail;
  * All route names are prefixed with 'frontend.monitor'.
  */
 Route::group(['as' => 'monitor.'], function () {
-    Route::get('dashboard', [WebMonitorController::class, 'index'])
+    Route::get('/monitor', [WebMonitorController::class, 'index'])
         ->name('index')
         ->breadcrumbs(function (Trail $trail) {
             $trail->push(__('Web Monitor'), route('frontend.monitor.index'));
