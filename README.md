@@ -1,3 +1,6 @@
+<p align="center">
+	<img src="https://raw.githubusercontent.com/Kantai235/laravel-web-monitor/master/public/img/readme/home.png" alt="Laravel Web Monitor">
+</p>
 <h3 align="center">Laravel Web Monitor</h3>
 <p align="center">這是一套使用 Laravel 所製作的 Domain 監控小工具，提供簡單的管理系統、監控 GUI 顯示畫面。</p>
 
