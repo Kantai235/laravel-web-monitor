@@ -1,5 +1,5 @@
 {
-    "name": "Kantai235/laravel-web-monitor",
+    "name": "kantai235/laravel-web-monitor",
     "type": "project",
     "description": "這是一套使用 Laravel 所製作的 Domain 監控小工具，提供簡單的管理系統、監控 GUI 顯示畫面。",
     "keywords": [
