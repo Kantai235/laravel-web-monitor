@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,300italic");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
+$cGood: #2eb35a;
+$cAlert: #d22c32;
+$orange: #ff6b23;
+$blue: #54c6fb;
+
+.dashboard {
+    display: block;
+    max-width: 1024px;
+    margin: 0 auto;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        font-family: "Lato", sans-serif;
+        text-transform: uppercase;
+    }
+
+    &-title {
+        flex: 1;
+        font-size: 2.5rem;
+    }
+
+    &-clock {
+        display: flex;
+        align-items: center;
+
+        &-digital {
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        &-binary {
+            margin-left: 8px;
+            border-collapse: separate;
+
+            td {
+                height: 0.4rem;
+                width: 0.4rem;
+                background-color: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+            }
+
+            .num1 {
+                background-color: $cGood;
+            }
+        }
+    }
+}
+
+.server {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    &-icon {
+        display: inline-block;
+        font-size: 2.5rem;
+        margin: 0 2rem;
+    }
+
+    &-details {
+        flex: 1;
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: block;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #7e8794;
+
+            &:last-child {
+                .data {
+                    font-weight: normal;
+                    color: #7e8794;
+                }
+            }
+        }
+
+        .data {
+            display: block;
+            margin: -1.7rem 0 0 0;
+            padding: 0 1rem 0 0;
+            font-weight: 600;
+            text-align: right;
+            // color: #c1c6cb;
+        }
+
+        .signal {
+            color: $cGood;
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 0.6rem;
+                height: 0.6rem;
+                background-color: currentColor;
+                border-radius: 50%;
+                margin-right: 0.5rem;
+                margin-top: -0.2rem;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+        grid-gap: 2rem;
+    }
+
+    &.has-failed {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        border-color: $cAlert;
+        animation: alertblink 2s ease-in-out infinite;
+
+        .server-icon,
+        .signal {
+            color: $cAlert;
+        }
+
+        &:hover {
+            background-color: rgba($cAlert, 0.2);
+            animation: none;
+        }
+    }
+}
+
+@keyframes alertblink {
+    0% {
+        background: rgba($cAlert, 0);
+    }
+    50% {
+        background: rgba($cAlert, 0.2);
+    }
+    100% {
+        background: rgba($cAlert, 0);
+    }
+}

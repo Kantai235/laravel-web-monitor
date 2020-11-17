@@ -1,0 +1,11 @@
+@import "../global";
+@import "global";
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Page
+@import 'page/monitor'
