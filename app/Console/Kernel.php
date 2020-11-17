@@ -17,7 +17,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\WebMonitor\IpAddressPing::class,
+        \App\Console\Commands\WebMonitor\IpAddressScan::class,
     ];
 
     /**
